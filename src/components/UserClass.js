@@ -14,10 +14,9 @@ class UserClass extends React.Component {
   }
 
   async componentDidMount() {
-    //console.log(this.props.name + "Child Component Did Mount");
     // Api call
 
-    const data = await fetch("https://api.github.com/users/akshaymarch7");
+    const data = await fetch("https://api.github.com/users/LakshayN");
     const json = await data.json();
 
     this.setState({
@@ -44,32 +43,10 @@ class UserClass extends React.Component {
         <img src={avatar_url} />
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
-        <h4>Contact: @akshaymarch7</h4>
+        <h4>Contact: 9818074818</h4>
       </div>
     );
   }
 }
 
 export default UserClass;
-
-/****
- *
- * --- MOUNTING ----
- *
- * Constructor (dummy)
- * Render (dummy)
- *      <HTML Dummy >
- * Component Did MOunt
- *      <API Call>
- *      <this.setState> -> State variable is updated
- *
- * ---- UPDATE
- *
- *      render(APi data)
- *      <HTML (new API data>)
- *      ccomponentDid Update
- *
- *
- *
- *
- */
