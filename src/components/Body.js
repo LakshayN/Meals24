@@ -25,11 +25,7 @@ const Body = () => {
     // );
 
     // const json = await data.json();
-    // console.log(
-    //   "json==",
-    //   json?.data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle
-    //     ?.restaurants
-    // );
+
     const data = res;
     // Optional Chaining
     // setListOfRestraunt(
