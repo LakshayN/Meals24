@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import res from "../utils/mockData";
 const Body = () => {
   const [listOfRestaurants, setListOfRestraunt] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -19,25 +20,28 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=83667"
-    );
+    // const data = await fetch(
+    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=83667"
+    // );
 
-    const json = await data.json();
-    console.log(
-      "json==",
-      json?.data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
+    // const json = await data.json();
+    // console.log(
+    //   "json==",
+    //   json?.data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants
+    // );
+    const data = res;
     // Optional Chaining
-    setListOfRestraunt(
-      json?.data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    setFilteredRestaurant(
-      json?.data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
+    // setListOfRestraunt(
+    //   data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
+    // setFilteredRestaurant(
+    //   data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
+
+    //USING MOCKED RESPONSE DUE TO API ERROR
+    setListOfRestraunt(data);
+    setFilteredRestaurant(data);
   };
 
   const onlineStatus = useOnlineStatus();
